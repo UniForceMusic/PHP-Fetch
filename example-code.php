@@ -6,7 +6,7 @@
 
     // GET request with query string
     $response = fetch("https://www.google.com", [
-        "parameters" => [
+        "params" => [
             "key" => "value"
         ]
     ]);
