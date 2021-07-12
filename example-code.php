@@ -2,17 +2,17 @@
     include "fetch.php";
 
     // GET request
-    fetch("https://www.google.com");
+    $response = fetch("https://www.google.com");
 
     // GET request with query string
-    fetch("https://www.google.com", [
+    $response = fetch("https://www.google.com", [
         "parameters" => [
             "key" => "value"
         ]
     ]);
 
     // POST request with form data body
-    fetch("https://www.google.com", [
+    $response = fetch("https://www.google.com", [
         "method"        => "POST",
         "body"          => [
             "key" => "value"
@@ -20,7 +20,7 @@
     ]);
 
     // POST request with json body
-    fetch("https://www.google.com", [
+    $response = fetch("https://www.google.com", [
         "method"        => "POST",
         "headers"       => [
             "Content-Type" => "application/json"
@@ -28,6 +28,18 @@
         "body"          => json_encode([
             "key" => "value"
         ])
+    ]);
+
+    // POST request with json body without a secure connection
+    $response = fetch("https://www.google.com", [
+        "method"        => "POST",
+        "headers"       => [
+            "Content-Type" => "application/json"
+        ],
+        "body"          => json_encode([
+            "key" => "value"
+        ]),
+        "secure"        => false
     ]);
 
     // Response object that fetch returns
