@@ -173,7 +173,7 @@
         public function __construct($curl) {
             $response           = curl_exec($curl);
             $error              = curl_error($curl);
-            $split_double_eol   = explode( "\r\n\r\n", $response );
+            $split_double_eol   = explode( "\r\n\r\n", $response, 2 );
             $split_headers_eol  = explode( "\r\n", $split_double_eol[0] );
             $split_http_space   = explode( " ", $split_headers_eol[0] );
             $this->url          = curl_getinfo($curl, CURLINFO_EFFECTIVE_URL);
